@@ -1,0 +1,135 @@
+openapi: 3.0.0
+info:
+  title: WeD API
+  version: 1.0.0
+  description: API documentation for the WeD (Web Developer Companion) project
+
+paths:
+  /content:
+    get:
+      summary: Retrieve Web Development Content
+      description: |
+        Get a list of web development content, including tutorials, presentations, source-code examples, news, and events.
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              example:
+                content:
+                  - title: "Introduction to Web Development"
+                    type: "Tutorial"
+                    source: "DevDocs"
+                  - title: "React.js Best Practices"
+                    type: "Presentation"
+                    source: "GitHub Pages"
+  /content/{contentId}:
+    get:
+      summary: Retrieve Specific Web Development Content
+      description: |
+        Get detailed information about a specific piece of web development content identified by {contentId}.
+      parameters:
+        - name: contentId
+          in: path
+          description: The unique identifier of the content
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              example:
+                title: "Introduction to Web Development"
+                type: "Tutorial"
+                source: "DevDocs"
+                content: "This tutorial covers the basics of web development..."
+
+  /categories:
+    get:
+      summary: Get Web Development Categories
+      description: |
+        Retrieve a list of categories and topics related to web development for use in filtering and organization.
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              example:
+                categories:
+                  - name: "JavaScript"
+                  - name: "React.js"
+                  - name: "Node.js"
+  /search:
+    get:
+      summary: Search Web Development Content
+      description: |
+        Search for web development content based on specified criteria such as topic, language, framework, and purpose.
+      parameters:
+        - name: query
+          in: query
+          description: The search query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              example:
+                results:
+                  - title: "JavaScript Fundamentals"
+                    type: "Tutorial"
+                    source: "MDN Web Docs"
+                  - title: "Node.js Best Practices"
+                    type: "Guide"
+                    source: "GitHub Pages"
+
+  /sparql:
+    post:
+      summary: Execute SPARQL Query
+      description: |
+        Execute a SPARQL query to retrieve linked data knowledge from the WeD system.
+      requestBody:
+        required: true
+        content:
+          application/sparql-query:
+            schema:
+              type: string
+            example: >
+              PREFIX wd: <http://example.com/wed#>
+              SELECT ?title ?type
+              WHERE {
+                ?content wd:title ?title ;
+                         wd:type ?type .
+              }
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              example:
+                results:
+                  - title: "Introduction to Linked Data"
+                    type: "Tutorial"
+                  - title: "Semantic Web Concepts"
+                    type: "Guide"
+
+  /sources:
+    get:
+      summary: Get Available Content Sources
+      description: |
+        Retrieve a list of available content sources (e.g., DevDocs, GitHub Pages, MDN Web Docs) for web development content.
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              example:
+                sources:
+                  - name: "DevDocs"
+                  - name: "GitHub Pages"
+                  - name: "MDN Web Docs"
+
