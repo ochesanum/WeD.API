@@ -5,7 +5,64 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WeD</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
 
+        article {
+            max-width: 800px;
+            margin: 20px auto;
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1,
+        h2,
+        h3 {
+            color: #444;
+        }
+
+        h1 {
+            font-size: 28px;
+        }
+
+        h2 {
+            border-bottom: 2px solid #eee;
+            padding-bottom: 6px;
+            margin-top: 40px;
+            font-size: 24px;
+        }
+
+        h3 {
+            margin-top: 30px;
+            font-size: 20px;
+        }
+
+        p {
+            text-align: justify;
+            margin: 10px 0;
+        }
+
+        ul {
+            list-style-position: inside;
+        }
+
+        a {
+            color: #0275d8;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 
 <body>
@@ -13,7 +70,7 @@
         <header>
             <h1>WeD - Web Developer Companion</h1>
         </header>
-        <div role="contentinfo" style="text-align: justify; margin-right: 60%">
+        <div role="contentinfo" style="text-align: justify;">
             <section typeof="sa:AuthorsList">
                 <h2>Authors</h2>
                 <ul>
@@ -49,20 +106,20 @@
             </section>
             <section id="abstract">
                 <h2>Abstract</h2>
-                <p>The WeD project proposes the creation of a sophisticated multi-device (micro-)service-oriented system
+                <p>The WeD project proposes the creation of a sophisticated multi-device (micro-)service-oriented
+                    cloud-based system
                     designed to intelligently model and manage public technical content related to Web development. This
                     encompasses a diverse range of information, including tutorials, source-code
                     examples,
-                    news, events, and more, sourced from reputable platforms such as DevDocs, GitHub Pages, MDN Web
+                    news, events, and more, sourced from reputable platforms such as MDN Web
                     Docs.
                     The core innovation lies in the application's utilization of Linked Data principles,
                     enabling it to generate and expose knowledge of significant interest to Web developers. This
                     knowledge
                     is accessible to both human users and software through a SPARQL endpoint.</p>
                 <p>The system facilitates granular exploration based on various criteria, including programming
-                    language/paradigm, specific framework guides/references, target platform, purpose, geographical
-                    area,
-                    period of time, and user preferences. Furthermore, the project integrates additional knowledge from
+                    language/paradigm, specific framework guides/references, target platform, purpose. Furthermore, the
+                    project integrates additional knowledge from
                     DBpedia and/or Wikidata, enhancing the richness and diversity of information available. The
                     implementation aligns with the ACM Computing Classification System, ensuring comprehensive coverage
                     of
@@ -80,8 +137,7 @@
                     exploring
                     and discovering public technical content. This content spans various types, from tutorials
                     to source-code examples, news, and events, sourced from leading platforms like
-                    DevDocs,
-                    GitHub Pages, MDN Web Docs.</p>
+                    MDN Web Docs.</p>
                 <p>By incorporating Linked Data principles, WeD enables the generation and exposure of knowledge
                     relevant to
                     Web developers. The system employs a SPARQL endpoint, ensuring accessibility for both human users
@@ -130,7 +186,8 @@
                 <p>
                     The scope of the WeD (Web Developer Companion) project is defined by its overarching goal: to create
                     a
-                    multi-device (micro-)service-oriented system that intelligently models and manages public technical
+                    multi-device (micro-)service-oriented cloud-based system that intelligently models and manages
+                    public technical
                     content related to web development. The system aims to cater to the diverse needs of web developers,
                     providing a centralized and smart interface for accessing a wide range of information.
                 </p>
@@ -139,7 +196,7 @@
                 <ul>
                     <li>Aggregation of Technical Content: Collecting tutorials, source-code examples,
                         news,
-                        events, and more from various reputable sources including DevDocs, GitHub Pages, MDN Web Docs.
+                        events, and more from various reputable sources including MDN Web Docs.
                     </li>
                     <li>Linked Data Principles: Implementation of Linked Data principles to generate and expose
                         knowledge
@@ -148,8 +205,7 @@
                         query
                         and retrieve specific information.</li>
                     <li>Granular Exploration: Enabling users to explore content based on criteria such as programming
-                        language, framework, target platform, purpose, geographical area, period of time, and user
-                        preferences.</li>
+                        language, framework, target platform, purpose.</li>
                     <li>Integration with External Knowledge Sources: Enhancing the information ecosystem by
                         incorporating
                         additional knowledge from DBpedia and/or Wikidata.</li>
@@ -170,13 +226,11 @@
                     This document refers to the external data used by the Product on a
                     number of occasions. The data in question has been obtained from
                     a number of sources, namely
-                    <a href="https://devdocs.io/">DevDocs </a>
-                    ,
+
                     <a href="https://developer.mozilla.org/en-US/">
                         MDN Web Docs</a>
                     ,
-                    as well as <a href="https://www.dbpedia.org/resources/sparql/">DBpedia</a>
-                    and <a href="https://www.wikidata.org/wiki/Wikidata:Main_Page">Wikidata</a>.
+                    as well as <a href="https://www.dbpedia.org/resources/sparql/">DBpedia</a>.
                 </p>
             </section>
             <section id="overall-description">
@@ -196,7 +250,7 @@
                         The WeD system will aggregate diverse technical content related to web development, including
                         tutorials, source-code examples, news, events, and more. This content will be
                         sourced
-                        from reputable platforms such as DevDocs, GitHub Pages, MDN Web Docs, and other relevant
+                        from reputable platforms such as MDN Web Docs, and other relevant
                         sources.
                     </p>
 
@@ -355,37 +409,27 @@
                     manipulation of web development content.
                 </p>
                 <p>
-                    <strong>Data Model:</strong> The internal data model will be based on the Resource Description
+                    The internal data model will be based on the Resource Description
                     Framework (RDF) to represent information in a semantic and interconnected manner. RDF provides a
                     flexible and extensible framework for defining entities, relationships, and metadata within the
                     knowledge base.
                 </p>
                 <p>
-                    <strong>Entity Relationships:</strong> Consideration will be given to defining explicit
+                    Consideration will be given to defining explicit
                     relationships between entities, ensuring a rich network of connections. This approach enables users
                     to traverse the knowledge base seamlessly and discover related content based on various criteria
                     such as topic, language, and framework.
                 </p>
                 <p>
-                    <strong>Ontologies:</strong> The incorporation of ontologies will play a crucial role in structuring
+                    The incorporation of ontologies will play a crucial role in structuring
                     concepts within the data model. Ontologies provide a shared vocabulary that enhances the clarity and
                     consistency of information, promoting a standardized understanding of web development content.
                 </p>
                 <p>
-                    <strong>Unique Identifiers (URIs):</strong> Each entity and resource will be assigned a Unique
+                    Each entity and resource will be assigned a Unique
                     Resource Identifier (URI) to ensure globally unique identification. URIs enable unambiguous
                     referencing and facilitate interoperability with external datasets, aligning with Linked Data
                     principles.
-                </p>
-                <p>
-                    <strong>Normalization and Indexing:</strong> To optimize data retrieval and search operations, a
-                    careful consideration of normalization and indexing strategies will be employed. This ensures that
-                    the system can efficiently handle a diverse range of queries while maintaining performance.
-                </p>
-                <p>
-                    <strong>Versioning:</strong> Implementation of versioning mechanisms will be explored to track
-                    changes in the knowledge base over time. This facilitates historical analysis and provides users
-                    with insights into the evolution of web development content.
                 </p>
             </section>
 
@@ -398,37 +442,67 @@
                     meaningful relationships within the web of data.
                 </p>
                 <p>
-                    <strong>1. URIs as Resource Identifiers:</strong> Each entity and resource within the WeD system is
+                    Each entity and resource within the WeD system is
                     assigned a unique Uniform Resource Identifier (URI). This ensures unambiguous identification and
                     facilitates global accessibility to resources.
                 </p>
                 <p>
-                    <strong>2. Resource Description with RDF:</strong> Resource Description Framework (RDF) is employed
+                    Resource Description Framework (RDF) is employed
                     as the foundational language for representing knowledge in a machine-readable format. This allows
                     for the creation of semantic relationships and enriches the content with meaningful context.
                 </p>
                 <p>
-                    <strong>3. HTTP as the Protocol:</strong> The Hypertext Transfer Protocol (HTTP) is utilized for
+                    The Hypertext Transfer Protocol (HTTP) is utilized for
                     data retrieval and interaction within the WeD system. This standardized protocol ensures uniform
                     access to resources and supports the principles of openness and decentralization.
                 </p>
                 <p>
-                    <strong>4. Linked Data Standards (RDF, SPARQL):</strong> WeD leverages RDF as the standard data
+                    WeD leverages RDF as the standard data
                     model, promoting the creation of links between resources. The SPARQL query language is employed to
                     provide users and applications with a flexible and powerful means of querying and extracting
                     relevant information.
                 </p>
                 <p>
-                    <strong>5. Linking to External Data Sources:</strong> The WeD system integrates additional knowledge
+                    The WeD system integrates additional knowledge
                     from external sources such as DBpedia and/or Wikidata. This cross-referencing enhances the richness
                     of information, aligning with the Linked Data principle of connecting to other datasets.
                 </p>
                 <p>
-                    <strong>6. Use of Ontologies:</strong> The project incorporates ontologies to define and organize
+                    The project incorporates ontologies to define and organize
                     concepts within the knowledge base. This semantic structuring ensures a shared understanding of data
                     and facilitates more nuanced and accurate queries.
                 </p>
             </section>
+            <section id="project-progress">
+                <h2>Project Progress</h2>
+                <p>
+                    The development of the WeD project has seen significant progress towards achieving its initial goals
+                    and adhering to the outlined requirements. We have worked diligently to realize the vision of a
+                    system that effectively models and manages
+                    public technical content for web development. The core functionalities, such as the application of
+                    Linked Data principles and the provision of a SPARQL endpoint for knowledge discovery, have been
+                    successfully implemented.
+                </p>
+                <p>
+                    However, it is important to note that one of our primary objectives, the aggregation of data from
+                    multiple sources, has been partially met. Due to unforeseen challenges in scraping content, we have
+                    primarily relied on MDN Web Docs as our sole data source. This limitation has consequently impacted
+                    the total volume of data available within the system, falling short of our initial expectations.
+                </p>
+                <p>
+                    Despite these challenges, our solution has considerably satisfied the project's criteria, despite
+                    their complexity. The features that have been put into place demonstrate our ability to provide a
+                    foundation that supports the objectives of the project.
+                </p>
+                <p>
+                    The projected outcome is optimistic. We have established a working solution that
+                    complies with the expected results, leaving room for future enhancements. With the intention of
+                    expanding our data sources, improving our processes, and eventually expanding the utility and reach
+                    of our system to better serve the web development community, we remain committed to developing and
+                    improving the WeD project.
+                </p>
+            </section>
+
             <section id="contributions">
                 <h2>Each author’s contributions</h2>
                 <p>
