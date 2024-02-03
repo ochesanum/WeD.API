@@ -33,29 +33,37 @@
 <details>
   <summary>Client</summary>
   <ul>
-    <li>TBD</li>
+    <li>React</li>
   </ul>
 </details>
 
 <details>
   <summary>Server</summary>
   <ul>
-    <li>TBD</li>
+    <li>Java Spring Boot</li>
   </ul>
 </details>
 
 <details>
-<summary>Database</summary>
+<summary>Triplestore</summary>
   <ul>
-    <li>TBD</li>
+    <li>Apache Jena Fuseki</li>
   </ul>
 </details>
 
 <details>
 <summary>DevOps</summary>
   <ul>
-    <li>Ansible/Bicep</li>
-    <li>TBD</li>
+    <li>Bicep</li>
+    <li>Azure Pipelines</li>
+    <li>Azure Functions</li>
+    <li>Azure Service bus</li>
+    <li>Azure App Service</li>
+    <li>Azure Static Web App</li>
+    <li>Azure Virtual Machine</li>
+    <li>Azure Networking Services</li>
+    <li>Azure Cache for Redis</li>
+    <li>Azure App Insights</li>
   </ul>
 </details>
 
@@ -70,11 +78,12 @@
 
 <!-- Getting Started -->
 ## Getting Started
-In-progress
+<a href="https://witty-water-0161e7d03.4.azurestaticapps.net/user-guide.html">Guide</a>
 
 
 <!-- Usage -->
 ## Usage
+<a href="https://witty-water-0161e7d03.4.azurestaticapps.net/scholarly-html.html">Report</a>
 
 The scope of the WeD (Web Developer Companion) project is defined by its overarching goal: to create a
 multi-device (micro-)service-oriented system that intelligently models and manages public technical
@@ -85,8 +94,8 @@ providing a centralized and smart interface for accessing a wide range of inform
 ## Roadmap
 
 * [x] Initial Research and Documentation
-* [ ] Deliverable 1: Diagrams (architecture), OpenApi, Scholarly HTML Report, Track Progress using Trello
-* [ ] Deliverable 2: Full implenetation, project will be deployed using Azure cloud services, maintaing and updating Scholarly HTML report
+* [x] Deliverable 1: Diagrams (architecture), OpenApi, Scholarly HTML Report, Track Progress using Trello
+* [x] Deliverable 2: Full implenetation, project will be deployed using Azure cloud services, maintaing and updating Scholarly HTML report
 
 <!-- License -->
 ## License
