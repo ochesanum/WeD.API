@@ -111,19 +111,26 @@
                     designed to intelligently model and manage public technical content related to Web development. This
                     encompasses a diverse range of information, including tutorials, source-code
                     examples,
-                    news, events, and more, sourced from reputable platforms such as MDN Web
-                    Docs.
-                    The core innovation lies in the application's utilization of Linked Data principles,
+                    news, events, and more, sourced from reputable platforms such as <a
+                        href="https://developer.mozilla.org/en-US/"> MDN Web
+                        Docs</a>.
+                    The core innovation lies in the application's utilization of <a
+                        href="https://www.w3.org/wiki/LinkedData">Linked Data</a> principles,
                     enabling it to generate and expose knowledge of significant interest to Web developers. This
                     knowledge
-                    is accessible to both human users and software through a SPARQL endpoint.</p>
+                    is accessible to both human users and software through a <a
+                        href="https://www.w3.org/TR/rdf-sparql-query/">SPARQL</a> endpoint.</p>
                 <p>The system facilitates granular exploration based on various criteria, including programming
                     language/paradigm, specific framework guides/references, target platform, purpose. Furthermore, the
                     project integrates additional knowledge from
-                    DBpedia and/or Wikidata, enhancing the richness and diversity of information available. The
-                    implementation aligns with the ACM Computing Classification System, ensuring comprehensive coverage
+                    <a href="https://www.dbpedia.org/">DBpedia</a> and/or <a
+                        href="https://www.wikidata.org/wiki/Wikidata:Introduction">Wikidata</a>, enhancing the richness
+                    and diversity of information available. The
+                    implementation aligns with the <a href="https://dl.acm.org/ccs">ACM Computing Classification
+                        System</a>, ensuring comprehensive coverage
                     of
-                    topics relevant to the Web development community.</p>
+                    topics relevant to the Web development community.
+                </p>
             </section>
             <section id="introduction">
                 <h2>Introduction</h2>
@@ -176,9 +183,11 @@
                     rest of this SRS contains
                     technical specifications consisting of preliminary considerations about the internal data
                     structures/models to be used and the external data sources
-                    managed by the Web application to be developed and it is organised according to the IEEE System
-                    Requirements Specification Template and conforms to the Scholary
-                    HTML document format.
+                    managed by the Web application to be developed and it is organised according to the <a
+                        href="https://ieeexplore.ieee.org/document/741940"> IEEE System
+                        Requirements Specification Template </a> and conforms to the <a
+                        href="https://w3c.github.io/scholarly-html/">Scholary
+                        HTML</a> document format.
                 </p>
             </section>
             <section id="product-scope">
@@ -395,7 +404,7 @@
                     <h3>Dependencies</h3>
                     <p>
                         The Product depends on its user to have other software components
-                        installed on their computers, such as a browser with a working
+                        installed on their computers, such as a web browser, and a working
                         internet connection.
                     </p>
                 </section>
@@ -505,15 +514,22 @@
             <section id="technicalAspects">
                 <h2>Technical Aspects</h2>
                 <p>
-                    As previously mentioned, our system leverages a microservice architecture, utilizing various Azure
+                    As previously mentioned, our system leverages a <a href="https://microservices.io/"> microservice
+                        architecture</a>, utilizing various <a href="https://azure.microsoft.com/en-us">Azure</a>
                     services and programming languages tailored to each sub-task. The choice of Azure for cloud hosting
-                    and the integration of continuous integration/continuous deployment (CI/CD) processes using Bicep
-                    and Azure YAML pipelines are central to the project's infrastructure and operational efficiency
+                    and the integration of <a href="https://www.redhat.com/en/topics/devops/what-is-ci-cd">CI/CD</a>
+                    processes using <a
+                        href="https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/overview?tabs=bicep">Bicep</a>
+                    and <a
+                        href="https://learn.microsoft.com/en-us/azure/devops/pipelines/apps/cd/azure/cicd-data-overview?view=azure-devops">Azure
+                        Pipelines</a> are central to the project's infrastructure and operational efficiency
                 </p>
                 <h3>Microservice Architecture and Azure Services</h3>
                 <p>
                     The use of a microservice architecture is significant in managing the system's complexity, ensuring
-                    scalability, and facilitating the development process by breaking down tasks into manageable,
+                    <a
+                        href="https://www.bdrsuite.com/blog/azure-scalability-features-and-functionality/">scalability</a>,
+                    and facilitating the development process by breaking down tasks into manageable,
                     independent services. Each microservice performs a specific role within the system, enhancing
                     maintainability and allowing for the use of different programming languages and technologies
                     that
@@ -521,35 +537,47 @@
                 </p>
                 <h4>Importer</h4>
                 <p>
-                    This Azure Function App is responsible for scraping and parsing content from sources like MSDN
-                    into JSON format. It leverages a Redis Cache to efficiently manage the high volume of data
-                    processed. The parsed data is then published to an Azure Service Bus queue, allowing for
+                    This <a href="https://learn.microsoft.com/en-us/azure/azure-functions/">Azure Function App</a> is
+                    responsible for scraping and parsing content from sources like MDN
+                    into JSON format. It leverages a <a href="https://azure.microsoft.com/en-us/products/cache">Redis
+                        Cache</a> to efficiently manage the high volume of data
+                    processed. The parsed data is then published to an <a
+                        href="https://learn.microsoft.com/en-us/azure/service-bus-messaging/service-bus-messaging-overview">Azure
+                        Service Bus</a> <a
+                        href="https://learn.microsoft.com/en-us/azure/service-bus-messaging/service-bus-queues-topics-subscriptions">
+                        queue</a>, allowing for
                     asynchronous data processing and decoupling from subsequent services
                 </p>
                 <h4>Enricher</h4>
                 <p>
                     Also implemented as an Azure Function App, the Enricher receives JSON data from the Azure Service
-                    Bus, enriches this data into JSON-LD format—a key step for integrating Linked Data principles—and
+                    Bus, enriches this data into <a href="https://json-ld.org/">JSON-LD</a> format—a key step for
+                    integrating Linked Data principles—and
                     forwards it to another Service Bus queue. This enrichment process is crucial for semantic web
                     compatibility and enhances the data's value by adding context and meaning.
                 </p>
                 <h4>Converter</h4>
                 <p>
                     The final step in the data processing pipeline, this Azure Function App converts the JSON-LD into
-                    RDF data using the Apache Jena library. The RDF data is then stored
-                    in a Fuseki RDF Store hosted on an Azure VM, making the data ready for querying using SPARQL.
+                    RDF data using the <a href="https://jena.apache.org/">Apache Jena</a> library. The RDF data is then
+                    stored
+                    in a <a href="https://jena.apache.org/documentation/fuseki2/rdf-sparql-standards.html">Fuseki RDF
+                        Store</a> hosted on an <a href="https://learn.microsoft.com/en-us/azure/virtual-machines/">Azure
+                        Virtual Machine</a>, making the data ready for querying using SPARQL.
                 </p>
                 <h4>API and Web Application</h4>
                 <p>
-                    The system's API, developed with Java Spring and hosted on Azure App Service, interfaces with the
-                    Fuseki RDF Store to query data using SPARQL endpoints. It also exposes its endpoints to the web
-                    application, facilitating data access and manipulation. The web application, built with React and
-                    hosted on Azure Static Web Apps, provides an intuitive platform for users to interact with the
-                    system, accessing and visualizing data according to their preferences.
+                    The system's API, developed with <a href="https://spring.io/projects/spring-boot">Java Spring
+                        Boot</a> and hosted on an <a href="https://learn.microsoft.com/en-us/azure/app-service/"> Azure
+                        App Service</a>, interfaces with the Fuseki RDF Store to query data using SPARQL endpoints. It
+                    also exposes its endpoints to the web application, facilitating data access and manipulation. The
+                    web application, built with<a href="https://react.dev/"> React</a> and hosted on <a href="https://learn.microsoft.com/en-us/azure/static-web-apps/">Azure Static Web Apps</a>, provides an intuitive
+                    platform for users to interact with the system, accessing and visualizing data according to their
+                    preferences.
                 </p>
                 <h4>CI/CD Infrastructure</h4>
                 <p>
-                    Using Azure DevOps and a combination of Bicep templates and Azure YAML pipelines, the project
+                    Using <a href="https://azure.microsoft.com/en-us/products/devops/?nav=min">Azure DevOps </a> and a combination of Bicep templates and Azure YAML pipelines, the project
                     achieves automated deployments, testing, and infrastructure management. This CI/CD setup ensures
                     that updates, features, and fixes are rapidly and reliably deployed across all components of the
                     system, from microservices to the web application, while also facilitating rollback and version
