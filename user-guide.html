@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeD</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        article {
+            max-width: 800px;
+            margin: 20px auto;
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1,
+        h2,
+        h3 {
+            color: #444;
+        }
+
+        h1 {
+            font-size: 28px;
+        }
+
+        h2 {
+            border-bottom: 2px solid #eee;
+            padding-bottom: 6px;
+            margin-top: 40px;
+            font-size: 24px;
+        }
+
+        h3 {
+            margin-top: 30px;
+            font-size: 20px;
+        }
+
+        p {
+            text-align: justify;
+            margin: 10px 0;
+        }
+
+        ul {
+            list-style-position: inside;
+        }
+
+        a {
+            color: #0275d8;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <article>
+        <header>
+            <h1>WeD - Web Developer Companion</h1>
+        </header>
+        <div role="contentinfo" style="text-align: justify;">
+            <section typeof="sa:AuthorsList">
+                <h2>Authors</h2>
+                <ul>
+                    <li typeof="sa:ContributorRole" property="schema:author">
+                        <span typeof="schema:Person">
+                            <meta property="schema:givenName" content="Mihnea">
+                            <meta property="schema:additionalName" content="Iorgu">
+                            <meta property="schema:familyName" content="Ochesanu">
+                            <span property="schema:name">Ochesanu I.B. Mihnea-Iorgu</span>
+                        </span>
+                        <ul>
+                            <li property="schema:roleContactPoint" typeof="schema:ContactPoint">
+                                <a href="mailto:mihnea.ochesanu@gmail.com"
+                                    property="schema:email">mihnea.ochesanu@gmail.com</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li typeof="sa:ContributorRole" property="schema:author">
+                        <span typeof="schema:Person">
+                            <meta property="schema:givenName" content="Radu">
+                            <meta property="schema:additionalName" content="Nicolae">
+                            <meta property="schema:familyName" content="Harabagiu">
+                            <span property="schema:name">Harabagiu Radu-Nicolae</span>
+                        </span>
+                        <ul>
+                            <li property="schema:roleContactPoint" typeof="schema:ContactPoint">
+                                <a href="mailto:radu.harabagiu@gmail.com"
+                                    property="schema:email">radu.harabagiu@gmail.com</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+            <section id="introduction">
+                <h2>Introduction</h2>
+                <p>This guide aims to help users navigate and utilize the full capabilities of our cloud-based web
+                    development content management system. This innovative solution aggregates, enriches, and exposes
+                    public technical content from multiple sources, offering users a comprehensive knowledge base on web
+                    development.</p>
+            </section>
+            <section id="getting-started">
+                <h2>Getting Started</h2>
+                <p>This section will focus on accessing the website and overview. The content is available in web-based
+                    environments, accessible across multiple devices, through modern web browsers. The application's
+                    user interface is optimized for various screen sizes and resolutions, providing a seamless
+                    experience across a range of devices. The user needs to have an internet connection to fetch content
+                    and query external sources.</p>
+                <p>In order to access the website the user will need to head to following address <a
+                        href="https://witty-water-0161e7d03.4.azurestaticapps.net/"> Here</a></p>
+            </section>
+            <section id="system-features">
+                <h2>System features</h2>
+                <p>In this section we will focus on describing the main features of the application, by going through
+                    the available pages.</p>
+                <h4>Start Page</h4>
+                <p>Upon visiting the start page, users are
+                    greeted with a clean and intuitive interface designed to facilitate easy navigation through the vast
+                    resources and functionalities the platform offers. At the forefront, two buttons serve as
+                    gateways to the core features of the system: one leads to a dedicated page for browsing our
+                    RDF schema. The second button is
+                    tailored for those eager to delve deeper into the data through SPARQL queries, providing direct
+                    access to a querying interface where users can execute custom searches to retrieve specific
+                    information or explore the data in novel ways. Additionally, for users interested in a comprehensive
+                    understanding of the platform, the button placed in the lower right corner of the screen
+                    offers immediate access to a scholarly HTML report. This report meticulously details the solution's
+                    architecture, features, and benefits.</p>
+                <figure>
+                    <img src="start-page.png" alt="start-page" style="width:100%">
+                    <figcaption>Fig.1 The start page</figcaption>
+                </figure>
+                <h4>Ontology Browser Page</h4>
+                <p>The Ontology Browser page of our system serves as a dynamic gateway into web
+                    development concepts encapsulated within our RDF schema. Upon arrival, users are presented with a
+                    dropdown menu listing all the main classes defined in the schema, such as programming languages and
+                    web technologies. This feature offers a structured starting point for
+                    exploration, allowing users to navigate through the hierarchy and delve into individual topics of
+                    interest. Selecting a topic unveils a curated display of content related to that subject, including
+                    detailed descriptions, tutorials, or examples. Additionally, when available, the page enriches the
+                    user's exploration by integrating relevant knowledge from DBpedia. At the
+                    bottom of the page, a "Related Content" section further enhances the browsing experience by
+                    suggesting information on similar topics, encouraging users to explore the interconnectedness of web
+                    development concepts and technologies, thereby fostering a deeper understanding and learning
+                    progression.</p>
+                <figure>
+                    <img src="ontology-browser.png" alt="ontology-browser" style="width:100%">
+                    <figcaption>Fig.2 Ontology browser page</figcaption>
+                </figure>
+                <h4>SPARQL Query Page</h4>
+                <p>The SPARQL Query page is a powerful tool designed for users who wish to engage directly with the
+                    underlying RDF model of our web development content management system. This interactive interface
+                    features a text box where users can input and execute their custom SPARQL queries, providing a
+                    hands-on approach to data exploration and retrieval. To assist users unfamiliar with SPARQL syntax
+                    or those seeking inspiration, the page includes two sample queries as guides: one for fetching all
+                    classes defined within our RDF model, offering a broad overview of the schema's structure, and
+                    another for retrieving all content related to a specific topic, allowing for targeted exploration of
+                    the repository's wealth of web development resources.</p>
+
+                <p>Upon executing a query, the results are initially presented in an easily readable HTML format,
+                    catering to users' preferences for quick insights and visual clarity. Recognizing the diverse needs
+                    of our user base, the page also features a dropdown menu enabling the selection of JSON as an
+                    alternative output format. This flexibility supports users who may require the data in a structured
+                    format for further processing, integration with other tools, or simply because they prefer the JSON
+                    syntax for its ubiquity in web development and APIs. This feature underscores the system's
+                    commitment to accommodating a wide range of user preferences and technical requirements, ensuring
+                    that the platform is as inclusive and accessible as possible.</p>
+                <figure>
+                    <img src="sparql-query.png" alt="sparql-query" style="width:100%">
+                    <figcaption>Fig.3 Sparql query page</figcaption>
+                </figure>
+            </section>
+            <section id="case-studies">
+                <h2>Case Studies</h2>
+                <ol>
+                    <li>Finding Tutorials on CSS:</li>
+                    <ul>
+                        <li>Objective: Locate comprehensive beginner to advanced tutorials on CSS</li>
+                        <li>Steps: Walkthrough of using the search feature to filter content specifically for CSS
+                            tutorials.</li>
+                        <li>Expected Outcome: A list of tutorials relevant to the needed topic.</li>
+                    </ul>
+                    <li>Custom Data Querying for Research</li>
+                    <ul>
+                        <li>Objective: To demonstrate how an academic researcher can use the SPARQL Query page to gather
+                            data for a research paper on specific web technologies.</li>
+                        <li>Steps: Access the SPARQL query page, use the sample query to fetch all classes from the RDF
+                            model, familiarizing themselves with the schema's scope, modifies the second sample query to
+                            retrieve detailed content on a specific technology of interest, such as "HTML" then
+                            gathering structured data in the form of JSON content, which can be easily analyzed in their
+                            research. </li>
+                        <li>Expected outcome: The researcher efficiently collects a comprehensive dataset on HTML</li>
+                    </ul>
+                    <li>Enhancing Professional Knowledge</li>
+                    <ul>
+                        <li>Objective: To enable a web developer to stay informed about the latest trends and
+                            developments in JavaScript libraries.</li>
+                        <li>Steps: The developer visits the Ontology Browser page and selects "Programming Languages"
+                            from the dropdown, then navigates to "JavaScript", then they can explore content related to
+                            various JavaScript libraries, clicking on topics to access specific information. The
+                            developer reviews the information provided for each library, including any DBpedia insights
+                            that highlight the library's significance, updates, and community support</li>
+                        <li>Expected outcome: The developer updates their knowledge on JavaScript libraries, discovering
+                            new tools and best practices that can be applied to their work.</li>
+                    </ul>
+                </ol>
+            </section>
+        </div>
+    </article>
+</body>
+
+</html>
