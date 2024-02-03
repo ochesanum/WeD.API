@@ -208,7 +208,7 @@
                         language, framework, target platform, purpose.</li>
                     <li>Integration with External Knowledge Sources: Enhancing the information ecosystem by
                         incorporating
-                        additional knowledge from DBpedia and/or Wikidata.</li>
+                        additional knowledge such as DBpedia or Wikidata.</li>
                 </ul>
 
                 <h3>Exclusions</h3>
@@ -502,7 +502,62 @@
                     improving the WeD project.
                 </p>
             </section>
-
+            <section id="technicalAspects">
+                <h2>Technical Aspects</h2>
+                <p>
+                    As previously mentioned, our system leverages a microservice architecture, utilizing various Azure
+                    services and programming languages tailored to each sub-task. The choice of Azure for cloud hosting
+                    and the integration of continuous integration/continuous deployment (CI/CD) processes using Bicep
+                    and Azure YAML pipelines are central to the project's infrastructure and operational efficiency
+                </p>
+                <h3>Microservice Architecture and Azure Services</h3>
+                <p>
+                    The use of a microservice architecture is significant in managing the system's complexity, ensuring
+                    scalability, and facilitating the development process by breaking down tasks into manageable,
+                    independent services. Each microservice performs a specific role within the system, enhancing
+                    maintainability and allowing for the use of different programming languages and technologies
+                    that
+                    are best suited for each task.
+                </p>
+                <h4>Importer</h4>
+                <p>
+                    This Azure Function App is responsible for scraping and parsing content from sources like MSDN
+                    into JSON format. It leverages a Redis Cache to efficiently manage the high volume of data
+                    processed. The parsed data is then published to an Azure Service Bus queue, allowing for
+                    asynchronous data processing and decoupling from subsequent services
+                </p>
+                <h4>Enricher</h4>
+                <p>
+                    Also implemented as an Azure Function App, the Enricher receives JSON data from the Azure Service
+                    Bus, enriches this data into JSON-LD format—a key step for integrating Linked Data principles—and
+                    forwards it to another Service Bus queue. This enrichment process is crucial for semantic web
+                    compatibility and enhances the data's value by adding context and meaning.
+                </p>
+                <h4>Converter</h4>
+                <p>
+                    The final step in the data processing pipeline, this Azure Function App converts the JSON-LD into
+                    RDF data using the Apache Jena library. The RDF data is then stored
+                    in a Fuseki RDF Store hosted on an Azure VM, making the data ready for querying using SPARQL.
+                </p>
+                <h4>API and Web Application</h4>
+                <p>
+                    The system's API, developed with Java Spring and hosted on Azure App Service, interfaces with the
+                    Fuseki RDF Store to query data using SPARQL endpoints. It also exposes its endpoints to the web
+                    application, facilitating data access and manipulation. The web application, built with React and
+                    hosted on Azure Static Web Apps, provides an intuitive platform for users to interact with the
+                    system, accessing and visualizing data according to their preferences.
+                </p>
+                <h4>CI/CD Infrastructure</h4>
+                <p>
+                    Using Azure DevOps and a combination of Bicep templates and Azure YAML pipelines, the project
+                    achieves automated deployments, testing, and infrastructure management. This CI/CD setup ensures
+                    that updates, features, and fixes are rapidly and reliably deployed across all components of the
+                    system, from microservices to the web application, while also facilitating rollback and version
+                    control. The extensive use of Infrastructure as Code (IaC) with Bicep allows for reproducible and
+                    consistent infrastructure provisioning, reducing the potential for human error and enhancing
+                    security and compliance. <b>Idemopotence</b>.
+                </p>
+            </section>
             <section id="contributions">
                 <h2>Each author’s contributions</h2>
                 <p>
