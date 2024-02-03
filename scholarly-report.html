@@ -62,6 +62,44 @@
         a:hover {
             text-decoration: underline;
         }
+
+        .sparql-embed {
+            background-color: #f5f5f5;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 20px;
+        }
+
+        .sparql-embed pre {
+            margin: 0;
+            overflow: auto;
+        }
+
+        .sparql-embed code {
+            display: block;
+            padding: 0;
+            overflow-x: auto;
+            font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+            color: #333;
+            font-size: 14px;
+            line-height: 1.45;
+        }
+
+        .sparql-embed .sparql {
+            color: #007700;
+        }
+
+        .sparql-embed .sparql .prefix {
+            color: #0000FF;
+        }
+
+        .sparql-embed .sparql .uri {
+            color: #AA0D91;
+        }
+
+        .sparql-embed .sparql .variable {
+            color: #993300;
+        }
     </style>
 </head>
 
@@ -571,13 +609,16 @@
                         Boot</a> and hosted on an <a href="https://learn.microsoft.com/en-us/azure/app-service/"> Azure
                         App Service</a>, interfaces with the Fuseki RDF Store to query data using SPARQL endpoints. It
                     also exposes its endpoints to the web application, facilitating data access and manipulation. The
-                    web application, built with<a href="https://react.dev/"> React</a> and hosted on <a href="https://learn.microsoft.com/en-us/azure/static-web-apps/">Azure Static Web Apps</a>, provides an intuitive
+                    web application, built with<a href="https://react.dev/"> React</a> and hosted on <a
+                        href="https://learn.microsoft.com/en-us/azure/static-web-apps/">Azure Static Web Apps</a>,
+                    provides an intuitive
                     platform for users to interact with the system, accessing and visualizing data according to their
                     preferences.
                 </p>
                 <h4>CI/CD Infrastructure</h4>
                 <p>
-                    Using <a href="https://azure.microsoft.com/en-us/products/devops/?nav=min">Azure DevOps </a> and a combination of Bicep templates and Azure YAML pipelines, the project
+                    Using <a href="https://azure.microsoft.com/en-us/products/devops/?nav=min">Azure DevOps </a> and a
+                    combination of Bicep templates and Azure YAML pipelines, the project
                     achieves automated deployments, testing, and infrastructure management. This CI/CD setup ensures
                     that updates, features, and fixes are rapidly and reliably deployed across all components of the
                     system, from microservices to the web application, while also facilitating rollback and version
@@ -585,6 +626,57 @@
                     consistent infrastructure provisioning, reducing the potential for human error and enhancing
                     security and compliance. <b>Idempotence</b>.
                 </p>
+            </section>
+            <section id="rdfKnowledgeModel">
+                <h2>RDF-based knowledge model</h2>
+                <p>Our schema, which builds upon the <a href="https://schema.org/">schema.org</a> model defines a
+                    detailed taxonomy of web development
+                    concepts, such as different types of
+                    programming languages (front-end, back-end),
+                    and other web technologies. This granularity allows for precise categorization and
+                    retrieval of content based on specific technical criteria or user preferences.</p>
+                <h4>Expressiveness</h4>
+                <p>Properties such as webdev:hasContent, webdev:hasTitle enable the annotation of web development
+                    resources with detailed metadata. This facilitates advanced querying capabilities, such as filtering
+                    content sections by topic. By adopting JSON-LD for data enrichment and converting it into RDF, the
+                    model adheres to Linked Data principles, enhancing interoperability with other semantic web
+                    resources.</p>
+                <h4>Real Usage of the Vocabulary</h4>
+                <p>The RDF-based model is inherently compatible with semantic web technologies, allowing it to be
+                    queried using SPARQL. This compatibility facilitates the integration of the system with other
+                    semantic web applications and data sources.</p>
+                <p>The model's structure supports easy extension for new web development technologies
+                    and paradigms. New classes and properties can be added to reflect advancements in the field without
+                    disrupting the existing schema, ensuring the system remains current and relevant.</p>
+            </section>
+            <section id="externalDataSources">
+                <h2>Pragmatic Use of External Data Sources</h2>
+                <p>The integration of external knowledge bases such as DBpedia into our web development
+                    content management system represents an important step towards creating an
+                    interconnected, and comprehensive knowledge ecosystem. By leveraging these extensive repositories of
+                    structured data, our solution can provide a deeper context, enhance the content's value, and
+                    facilitate a broader understanding of web development topics.</p>
+                <p>DBpedia serves as pivotal source of external knowledge, offering a wide array of
+                    information that can be seamlessly integrated into our system. Through the use of SPARQL queries, we
+                    are able to fetch relevant data related to web development concepts, technologies.</p>
+                <h4>SPARQL queries</h4>
+                <p> Sample SPARQL query utilized within our application to fetch content sections related to
+                    CSS transitions from our RDF store. This query demonstrates how we integrate internal data modeling
+                    with external data linkage:</p>
+                <div class="sparql-embed">
+                    <pre><code class="sparql">PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX schema: &lt;http://schema.org/&gt;
+PREFIX webdev: &lt;http://example.org/webdev#&gt;
+SELECT ?sectionName ?content ?topicURI
+WHERE {
+  ?section rdf:type webdev:ContentSection .
+  ?section schema:name ?sectionName .
+  ?section schema:articleBody ?content .
+  ?section webdev:isAbout ?topicURI .
+  FILTER (STRSTARTS(STR(?topicURI), "http://example.org/webdev#CSS/CSS_transitions"))
+} LIMIT 100</code></pre>
+                </div>
+
             </section>
             <section id="contributions">
                 <h2>Each author’s contributions</h2>
